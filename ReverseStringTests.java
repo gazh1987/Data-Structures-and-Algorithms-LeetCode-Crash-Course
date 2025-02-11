@@ -2,9 +2,10 @@ package Dsa;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
-import junit.framework.Assert;
+import org.junit.jupiter.api.Test;
 
 class ReverseStringTests {
 
@@ -38,6 +39,17 @@ class ReverseStringTests {
 		char[] s = hannah.reverseCharArray(sToRev);
 		String sToAssert = String.valueOf(s);
 		assertEquals(sToAssert, "hannaH");
+	}
+	
+	@Test 
+	void testHannahreverseStringRecursive(){
+		ReverseString hannah = new ReverseString();
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent)); 
+        
+		char[] sToRev = { 'H','e','l','l','o' };
+		hannah.reverseStringRecursive(sToRev);
+		assertEquals(outContent.toString(), "olleH");
 	}
 
 }
