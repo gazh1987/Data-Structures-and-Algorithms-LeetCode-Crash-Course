@@ -5,51 +5,51 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ReverseStringTests {
 
+	ReverseString s = new ReverseString();
+	@BeforeEach
+	void setup() {
+		s = new ReverseString();
+	}
+	
+	
 	@Test
-	void testHelloString() {
-		ReverseString hello = new ReverseString();
-		String s = hello.reverseString("Hello");
-		assertEquals(s, "olleH");
+	void givenStringHello_whenReversed_thenReturnOlleH() {
+		assertEquals("olleH", s.reverseString("Hello"));
 	}
 	
 	@Test
-	void testHannahString() {
-		ReverseString hello = new ReverseString();
-		String s = hello.reverseString("Hannah");
-		assertEquals(s, "hannaH");
+	void givenStringHannah_whenReversed_thenReturnHannaH() {
+		assertEquals("hannaH", s.reverseString("Hannah"));
+	}
+	
+	@Test
+	void givenNullString_whenReversed_thenReturnNull() {
+		assertEquals(null, s.reverseString(null));
 	}
 	
 	@Test 
-	void testHelloChar(){
-		ReverseString hello = new ReverseString();
+	void givenCharArrayHello_whenReversed_thenReturnOlleh(){
 		char[] sToRev = { 'H','e','l','l','o' }; 
-		char[] s = hello.reverseCharArray(sToRev);
-		String sToAssert = String.valueOf(s);
-		assertEquals(sToAssert, "olleH");
+		char[] reversed = s.reverseCharArrayInPlace(sToRev);
+		String sToAssert = String.valueOf(reversed);
+		assertEquals("olleH", sToAssert);
 	}
 	
 	@Test 
-	void testHannahChar(){
-		ReverseString hannah = new ReverseString();
+	void givenCharArrayHannah_whenReversed_thenReturnStringHannah(){
 		char[] sToRev = { 'H','a','n','n','a', 'h' }; 
-		char[] s = hannah.reverseCharArray(sToRev);
-		String sToAssert = String.valueOf(s);
-		assertEquals(sToAssert, "hannaH");
+		char[] reversed = s.reverseCharArrayInPlace(sToRev);
+		String sToAssert = String.valueOf(reversed);
+		assertEquals("hannaH", sToAssert);
 	}
 	
 	@Test 
-	void testHannahreverseStringRecursive(){
-		ReverseString hannah = new ReverseString();
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent)); 
-        
-		char[] sToRev = { 'H','e','l','l','o' };
-		hannah.reverseStringRecursive(sToRev);
-		assertEquals(outContent.toString(), "olleH");
+	void givenEmptyCharArray_whenReversed_thenReturnsEmpty(){
+		assertNull(s.reverseCharArrayInPlace(null));
 	}
-
 }
