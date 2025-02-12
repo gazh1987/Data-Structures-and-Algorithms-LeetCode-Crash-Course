@@ -1,60 +1,46 @@
 package Dsa;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class SquaresOfASortedArrayTest {
 
-	@Test
-	void test1() {
-		SquaresOfASortedArray s = new SquaresOfASortedArray();
-		int[] nums = {-4,-1,0,3,10};
-		int[] numsSorted =  s.sortedSquaresBubble(nums);
-		assertArrayEquals(numsSorted, new int[]{0,1,9,16,100});
+	SquaresOfASortedArray s;
+	
+	@BeforeEach
+	void setup() {
+		s = new SquaresOfASortedArray();
 	}
 	
 	@Test
-	void test2() {
-		SquaresOfASortedArray s = new SquaresOfASortedArray();
-		int[] nums = {-7,-3,2,3,11};
-		int[] numsSorted =  s.sortedSquaresBubble(nums);
-		assertArrayEquals(numsSorted, new int[]{4,9,9,49,121});
+	void givenIntArrayNums_whenSortedAndSquared_returnSortedAndSquaredArray() {
+		int[] nums = {-8, -4,-1,0,3,10};
+		assertArrayEquals(s.sortedSquaredSort(nums), new int[]{0,1,9,16,64,100});
 	}
 	
 	@Test
-	void test3() {
-		SquaresOfASortedArray s = new SquaresOfASortedArray();
-		int[] nums = {-4,-4,-3};
-		int[] numsSorted =  s.sortedSquaresBubble(nums);
-		assertArrayEquals(numsSorted, new int[]{9, 16, 16});
+	void givenIntArrayNumsWithAllPositiveNums_whenSortedAndSquared_returnSortedAndSquaredArray() {
+		int[] nums = {1, 2, 3, 4, 5};
+		assertArrayEquals(s.sortedSquaredSort(nums), new int[]{1, 4, 9, 16, 25});
+	}	
+	
+	@Test
+	void givenIntArrayNumsWithAllNegativeNums_whenSortedAndSquared_returnSortedAndSquaredArray() {
+		int[] nums = {-5, -4, -3, -2, -1};
+		assertArrayEquals(s.sortedSquaredSort(nums), new int[]{1, 4, 9, 16, 25});
+	}	
+	
+	@Test
+	void givenIntArrayIsNull_whenSquared_returnEmptyIntArray() {
+		int[] nums = null;
+		assertArrayEquals(s.sortedSquaredSort(nums), new int [0]);
 	}
 	
 	@Test
-	void test4() {
-		SquaresOfASortedArray s = new SquaresOfASortedArray();
-		int[] nums = {-4,-1,0,3,10};
-		int[] numsSorted =  s.sortedSquaresOn(nums);
-		assertArrayEquals(numsSorted, new int[]{0,1,9,16,100});
+	void givenIntArrayIsEmpty_whenSquared_returnEmptyIntArray() {
+		int[] nums = new int[] {};
+		assertArrayEquals(s.sortedSquaredSort(nums), new int [0]);
 	}
-	
-	@Test
-	void test5() {
-		SquaresOfASortedArray s = new SquaresOfASortedArray();
-		int[] nums = {-7,-3,2,3,11};
-		int[] numsSorted =  s.sortedSquaresOn(nums);
-		assertArrayEquals(numsSorted, new int[]{4,9,9,49,121});
-	}
-	
-	@Test
-	void test6() {
-		SquaresOfASortedArray s = new SquaresOfASortedArray();
-		int[] nums = {-4,-4,-3};
-		int[] numsSorted =  s.sortedSquaresOn(nums);
-		assertArrayEquals(numsSorted, new int[]{9, 16, 16});
-
-	}
-		
-	
 }

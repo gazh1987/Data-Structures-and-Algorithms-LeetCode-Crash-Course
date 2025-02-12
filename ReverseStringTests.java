@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 class ReverseStringTests {
 
 	ReverseString s = new ReverseString();
+	
 	@BeforeEach
 	void setup() {
 		s = new ReverseString();
