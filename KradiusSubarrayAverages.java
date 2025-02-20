@@ -31,18 +31,3 @@ public class KradiusSubarrayAverages {
 		return averagesArray;
     }
 }
-
-/**
- *                    i           i
- *  nums = 7, 4,  3,  9,  1,  8,  5,  2,  6  
- *  pre  = 7, 11, 14, 23, 24, 32, 37, 39, 45
- *  new  = -1,-1, -1,
- *  k = 3
- *  
- *  39-7/3*2+1
-	
-	
-	
-	Output: [-1,-1,-1,5,4,4,-1,-1,-1]
- */
-
