@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class MissingNumber {
 	
 	
-	// missinNumber using a set as the exercise is about Hashing.  
+	// missinNumber method using a set as the exercise is about Hashing.  
 	// Added the much quicker method missingNumberFast which does not use hashing
 	
 	public int missingNumber(int[] nums) {
