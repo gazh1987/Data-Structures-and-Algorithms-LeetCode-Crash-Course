@@ -20,11 +20,13 @@ public class IntersectionOfMultipleArrays {
         for (int i = 0; i < nums.length; i++) {
             for (int j = 0; j < nums[i].length; j++) {
             	elementFrequencyMap.put(nums[i][j], elementFrequencyMap.getOrDefault(nums[i][j], 0) + 1);
-            	
-            	if (elementFrequencyMap.get(nums[i][j]) == nums.length) {
-            		intersectedValues.add(nums[i][j]);
-            	}
             }
+        }
+        
+        for (int key : elementFrequencyMap.keySet()) {
+        	if (elementFrequencyMap.get(key) == nums.length) {
+        		intersectedValues.add(key);
+        	}
         }
         
         Collections.sort(intersectedValues);
